@@ -8,6 +8,14 @@ let spanName = document.createElement('span');
 let spanMessage = document.createElement('span');
 
 button.addEventListener('click', function(){
+    fetch("https://live-chat-e33d1-default-rtdb.firebaseio.com/chat.json" , {
+        method: "POST",
+        body: JSON.stringify({
+            name: inputName.value,
+            message: inputMessage.value,
+            color: inputColor.value,
+        }),
+    })
     console.log(inputName.value, inputMessage.value, inputColor.value);
     let div = document.createElement('div');
     let spanName = document.createElement('span');
@@ -20,4 +28,6 @@ button.addEventListener('click', function(){
     spanName.style.color = inputColor.value
     spanName.style.fontWeight = "bold"
 })
+
+
 
